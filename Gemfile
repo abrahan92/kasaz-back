@@ -36,6 +36,7 @@ group :development, :test do
 
   # Unit testing
   gem 'rspec', '~> 3.10'
+  gem 'rspec-rails'
 
   # Code cleaning
   gem 'rubocop-rails'
