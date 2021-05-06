@@ -2,5 +2,5 @@
 
 class PropertySerializer
   include FastJsonapi::ObjectSerializer
-  attributes :title, :sqm, :price, :bedrooms, :bathrooms
+  attributes :title, :sqm, :price, :bedrooms, :bathrooms, :picture
 end

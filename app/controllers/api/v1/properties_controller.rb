@@ -49,7 +49,7 @@ module Api
       private
 
       def property_params
-        params.require(:property).permit(:title, :sqm, :price, :bedrooms, :bathrooms)
+        params.permit(:title, :sqm, :price, :bedrooms, :bathrooms, :avatar)
       end
     end
   end
