@@ -58,3 +58,6 @@ gem 'fast_jsonapi'
 
 # Pagination
 gem 'kaminari'
+
+# Use ENV var
+gem 'dotenv-rails'
