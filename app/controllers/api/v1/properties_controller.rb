@@ -6,7 +6,9 @@ module Api
     class PropertiesController < Api::V1::BaseController
       # GET /api/v1/properties/
       def index
-        render json: PropertySerializer.new(Property.all).serialized_json
+        page = params[:page].blank? ? 1 : params[:page].to_i
+
+        render json: PropertySerializer.new(Property.page(page)).serialized_json
       end
 
       # GET /api/v1/properties/:id
@@ -44,6 +46,33 @@ module Api
         else
           render json: { success: false, error: 'Error' }
         end
+      end
+
+      # GET /api/v1/filters/
+      def filters
+        filters = Hash.new
+        filters[:page_count] = Property.all.page(3).total_pages
+        filters[:rooms] = nil
+        filters[:max_price] = nil
+        filters[:min_price] = nil
+        filters[:max_size] = nil
+        filters[:min_size] = nil
+        filters[:prices] = Property.all.order(price: :asc).map do |property|
+          {
+            key: property.id,
+            value: property.price,
+            text: "#{property.price} €"
+          }
+        end
+        filters[:sizes] = Property.all.order(sqm: :asc).map do |property|
+          {
+            key: property.id,
+            value: property.sqm,
+            text: "#{property.sqm} mts2"
+          }
+        end
+
+        render json: { success: true, data: filters }
       end
 
       private

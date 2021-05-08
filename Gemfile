@@ -55,3 +55,6 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # Model serializer
 gem 'fast_jsonapi'
+
+# Pagination
+gem 'kaminari'
