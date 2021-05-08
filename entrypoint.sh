@@ -7,7 +7,7 @@ bundle update
 set -e
 
 # If the database exists, migrate. Otherwise setup (create and migrate)
-rails db:create db:migrate
+bundle exec rails db:create db:migrate
 echo "MySQL database has been created & migrated!"
 
 # Remove a potentially pre-existing server.pid for Rails.
