@@ -22,11 +22,11 @@ The purpose of this document is to describe how to run the Ruby script approach 
 
 3. Run ```git fetch origin develop-sqlite && git checkout develop-sqlite``` to go on the branch requested.
 
-5. Add the postman collection file located in app/collections/KASAZ.postman_collection.json to your postman app and get all endpoints.
+4. Add the postman collection file located in app/collections/KASAZ.postman_collection.json to your postman app and get all endpoints.
 
-6. In the `app/images` folder you have sample images to import using [POST] endpoint from POSTMAN
+5. In the `app/images` folder you have sample images to import using [POST] endpoint from POSTMAN
 
-7. Check your ip on your terminal with `ifconfig` and add http url to the `.env` file on HOST_URL.
+6. Check your ip on your terminal with `ifconfig` and add http url to the `.env` file on HOST_URL.
 
 For my case the example is `HOST_URL=http://192.168.1.143:3030`
 
@@ -49,10 +49,14 @@ I tried to keep in mind all these things to do a real case for this simple examp
 
 The project structure has the follow topics:
 
-* Used classes `[Property]` are in lib folder `app/models`.
-* `bin` with the exec file to play.
+* Used classes `[Property]` are in folder `app/models`.
 * `spec/models/property` with some unit tests for all classes.
-* `README.md` has the test rules and instructions.
+* `README.md` has the test rules.
+* `INSTRUCTIONS.md` has the steps to run the project.
+
+### Notes 🔖
+
+I created the branch `develop-sqlite` to run the project with sqlite3, in this way this way you will not have a problem with the mysql socket, since at the beginning of my development in the develop branch I used mysql2. But doing some tests on other computers had to make some configurations for the mysql socket and for time I preferred to take an alternative.
 
 ### Improvements ✈️
 
